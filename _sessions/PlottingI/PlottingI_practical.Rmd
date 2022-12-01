@@ -466,7 +466,7 @@ knitr::kable(mcdonalds[1:5, 1:5])
 
 ### Dokumentation
 
-Siehe die `ggplot2` [**Webseite**](http://ggplot2.tidyverse.org/) und Selva Prabhakaran's [**Webseite**](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html) mit inspirierenden `ggplot2` Beispielen. 
+Siehe die `ggplot2` [**Webseite**](https://ggplot2.tidyverse.org/) und Selva Prabhakaran's [**Webseite**](https://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html) mit inspirierenden `ggplot2` Beispielen. 
 
 ### Cheatsheet
 

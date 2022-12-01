@@ -11,6 +11,8 @@ user_title: R you ready?
 email: therbootcamp@gmail.com
 twitter_username: therbootcamp
 github_username:  therbootcamp
+baselink: https://rds-fs2023.netlify.app
+
 
 include: ['_sessions', '_tutorials','_materials','_sessions/_css','_sessions/_image']
 exclude: ['package.json', 'src' , 'node_modules']

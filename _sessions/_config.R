@@ -5,4 +5,4 @@ raw_url = 'https://raw.githubusercontent.com/therbootcamp/Intro2R_Unibe_2022/'
 
 # if TRUE = show solutions in practicals
 value_echo = FALSE
-value_eval = TRUE
+value_eval = FALSE

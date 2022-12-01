@@ -14,13 +14,13 @@
 
 <title>Plotting I</title>
 
-<script src="PlottingI_practical_files/header-attrs/header-attrs.js"></script>
-<script src="PlottingI_practical_files/jquery/jquery-3.6.0.min.js"></script>
+<script src="PlottingI_practical_files/header-attrs-2.18/header-attrs.js"></script>
+<script src="PlottingI_practical_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="PlottingI_practical_files/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-<script src="PlottingI_practical_files/bootstrap/js/bootstrap.min.js"></script>
-<script src="PlottingI_practical_files/bootstrap/shim/html5shiv.min.js"></script>
-<script src="PlottingI_practical_files/bootstrap/shim/respond.min.js"></script>
+<link href="PlottingI_practical_files/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="PlottingI_practical_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="PlottingI_practical_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="PlottingI_practical_files/bootstrap-3.3.5/shim/respond.min.js"></script>
 <style>h1 {font-size: 34px;}
        h1.title {font-size: 38px;}
        h2 {font-size: 30px;}
@@ -30,9 +30,9 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="PlottingI_practical_files/navigation/tabsets.js"></script>
-<link href="PlottingI_practical_files/highlightjs/default.css" rel="stylesheet" />
-<script src="PlottingI_practical_files/highlightjs/highlight.js"></script>
+<script src="PlottingI_practical_files/navigation-1.1/tabsets.js"></script>
+<link href="PlottingI_practical_files/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="PlottingI_practical_files/highlightjs-9.12.0/highlight.js"></script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -232,26 +232,21 @@ Positioniere <code>Calories</code> auf der x-Achse und
 </ol>
 <pre class="r"><code>ggplot(data = mcdonalds, 
        mapping = aes(x = XX, y = XX))</code></pre>
-<p><img src="PlottingI_practical_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
 <ol start="2" style="list-style-type: decimal">
-<li>Verwende <code>geom_point()</code> und <code>+</code> um Punkte zu
-plotten.</li>
-</ol>
-<p><img src="PlottingI_practical_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
-<ol start="3" style="list-style-type: decimal">
-<li>Verwende das <code>col</code> Argument in <code>aes()</code> um die
-Farbe nach der Variable <code>Category</code> variieren zu lassen.</li>
+<li><p>Verwende <code>geom_point()</code> und <code>+</code> um Punkte
+zu plotten.</p></li>
+<li><p>Verwende das <code>col</code> Argument in <code>aes()</code> um
+die Farbe nach der Variable <code>Category</code> variieren zu
+lassen.</p></li>
 </ol>
 <pre class="r"><code>ggplot(mcdonalds, aes(x = XX, y = XX, col = XX)) +
   geom_point() </code></pre>
-<p><img src="PlottingI_practical_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
 <ol start="4" style="list-style-type: decimal">
 <li>Verwende <code>geom_smooth()</code> um eine angepasste Linie zu
 ergänzen.</li>
 </ol>
 <pre class="r"><code>ggplot(mcdonalds, aes(x = XX, y = XX, col = XX)) +
   geom_point() </code></pre>
-<p><img src="PlottingI_practical_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;" /></p>
 <ol start="5" style="list-style-type: decimal">
 <li>Oops! Hast du mehre Linien anstatt einer bekommen? Löse das Problem
 indem du die Farbe innerhalb von <code>geom_smooth()</code> auf
@@ -260,7 +255,6 @@ indem du die Farbe innerhalb von <code>geom_smooth()</code> auf
 <pre class="r"><code>ggplot(mcdonalds, aes(x = XX, y = XX, col = XX)) +
   geom_point() +
   geom_smooth(col = &quot;XX&quot;) </code></pre>
-<p><img src="PlottingI_practical_files/figure-html/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
 <ol start="6" style="list-style-type: decimal">
 <li>Verwende <code>labs()</code> um den Plot angemessen zu
 annotieren.</li>
@@ -271,7 +265,6 @@ annotieren.</li>
   labs(title = &quot;XX&quot;,
        subtitle = &quot;XX&quot;,
        caption = &quot;XX&quot;)</code></pre>
-<p><img src="PlottingI_practical_files/figure-html/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;" /></p>
 <ol start="7" style="list-style-type: decimal">
 <li>Verwende <code>xlim()</code>, eine einfache Version von
 <code>scale_x_continuous()</code>, um die x-Achse auf die Werte
@@ -284,12 +277,10 @@ annotieren.</li>
        subtitle = &quot;XX&quot;,
        caption = &quot;XX&quot;) +
   xlim(XX, XX)</code></pre>
-<p><img src="PlottingI_practical_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" /></p>
 <ol start="8" style="list-style-type: decimal">
 <li>Abschliessend verwende <code>theme_minimal()</code> um die Ästhetik
 des Plots anzupassen.</li>
 </ol>
-<p><img src="PlottingI_practical_files/figure-html/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="d---geoms" class="section level3">
 <h3>D - <code>geom</code>s</h3>
@@ -304,25 +295,15 @@ Fall der Kalorien. Verwende für das Argument <code>fill</code> ebenfalls
 <pre class="r"><code>ggplot(data = mcdonalds, 
        aes(x = XX, y = XX, fill = XX)) +
   geom_violin()</code></pre>
-<p><img src="PlottingI_practical_files/figure-html/unnamed-chunk-19-1.png" width="768" style="display: block; margin: auto;" /></p>
 <ol start="2" style="list-style-type: decimal">
-<li>Ergänze mit <code>labs()</code> einen angemessenen Titel
-(<code>title</code>) und Untertitel (<code>subtitle</code>).</li>
-</ol>
-<p><img src="PlottingI_practical_files/figure-html/unnamed-chunk-20-1.png" width="768" style="display: block; margin: auto;" /></p>
-<ol start="3" style="list-style-type: decimal">
-<li>Ergänze <code>theme(legend.position = "none")</code>, so dass keine
-Legende gezeigt wird.</li>
-</ol>
-<p><img src="PlottingI_practical_files/figure-html/unnamed-chunk-21-1.png" width="768" style="display: block; margin: auto;" /></p>
-<ol start="4" style="list-style-type: decimal">
-<li>Verwende <code>geom_jitter()</code> um Punkte über die Violinen zu
-plotten. Setze in der Funktion <code>width = .1</code> und
-<code>alpha = .5</code>.</li>
-</ol>
-<p><img src="PlottingI_practical_files/figure-html/unnamed-chunk-22-1.png" width="768" style="display: block; margin: auto;" /></p>
-<ol start="5" style="list-style-type: decimal">
-<li>Probiere ein paar Sachen aus:</li>
+<li><p>Ergänze mit <code>labs()</code> einen angemessenen Titel
+(<code>title</code>) und Untertitel (<code>subtitle</code>).</p></li>
+<li><p>Ergänze <code>theme(legend.position = "none")</code>, so dass
+keine Legende gezeigt wird.</p></li>
+<li><p>Verwende <code>geom_jitter()</code> um Punkte über die Violinen
+zu plotten. Setze in der Funktion <code>width = .1</code> und
+<code>alpha = .5</code>.</p></li>
+<li><p>Probiere ein paar Sachen aus:</p></li>
 </ol>
 <ul>
 <li>Ändere die Werte für <code>width</code> oder <code>alpha</code> in
@@ -399,7 +380,6 @@ folgenden Code um die <code>Calories</code> (y-Achse) gegen
 <li>Ergänze Punkte über den Balken mit <code>geom_point()</code>,
 <code>geom_count()</code>, oder <code>geom_jitter()</code>.</li>
 </ul>
-<p><img src="PlottingI_practical_files/figure-html/unnamed-chunk-28-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 <div id="x---challenges" class="section level3">
 <h3>X - Challenges</h3>
@@ -505,110 +485,57 @@ href="https://raw.githubusercontent.com/therbootcamp/R4DS_2019Feb/master/1_Data/
 </table>
 <p><em>First 5 rows and columns of mcdonalds.csv</em></p>
 <table>
+<colgroup>
+<col width="12%" />
+<col width="39%" />
+<col width="18%" />
+<col width="10%" />
+<col width="19%" />
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:left;">
-Category
-</th>
-<th style="text-align:left;">
-Item
-</th>
-<th style="text-align:left;">
-ServingSize
-</th>
-<th style="text-align:right;">
-Calories
-</th>
-<th style="text-align:right;">
-CaloriesfromFat
-</th>
+<tr class="header">
+<th align="left">Category</th>
+<th align="left">Item</th>
+<th align="left">ServingSize</th>
+<th align="right">Calories</th>
+<th align="right">CaloriesfromFat</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Breakfast
-</td>
-<td style="text-align:left;">
-Egg McMuffin
-</td>
-<td style="text-align:left;">
-4.8 oz (136 g)
-</td>
-<td style="text-align:right;">
-300
-</td>
-<td style="text-align:right;">
-120
-</td>
+<tr class="odd">
+<td align="left">Breakfast</td>
+<td align="left">Egg McMuffin</td>
+<td align="left">4.8 oz (136 g)</td>
+<td align="right">300</td>
+<td align="right">120</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Breakfast
-</td>
-<td style="text-align:left;">
-Egg White Delight
-</td>
-<td style="text-align:left;">
-4.8 oz (135 g)
-</td>
-<td style="text-align:right;">
-250
-</td>
-<td style="text-align:right;">
-70
-</td>
+<tr class="even">
+<td align="left">Breakfast</td>
+<td align="left">Egg White Delight</td>
+<td align="left">4.8 oz (135 g)</td>
+<td align="right">250</td>
+<td align="right">70</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Breakfast
-</td>
-<td style="text-align:left;">
-Sausage McMuffin
-</td>
-<td style="text-align:left;">
-3.9 oz (111 g)
-</td>
-<td style="text-align:right;">
-370
-</td>
-<td style="text-align:right;">
-200
-</td>
+<tr class="odd">
+<td align="left">Breakfast</td>
+<td align="left">Sausage McMuffin</td>
+<td align="left">3.9 oz (111 g)</td>
+<td align="right">370</td>
+<td align="right">200</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Breakfast
-</td>
-<td style="text-align:left;">
-Sausage McMuffin with Egg
-</td>
-<td style="text-align:left;">
-5.7 oz (161 g)
-</td>
-<td style="text-align:right;">
-450
-</td>
-<td style="text-align:right;">
-250
-</td>
+<tr class="even">
+<td align="left">Breakfast</td>
+<td align="left">Sausage McMuffin with Egg</td>
+<td align="left">5.7 oz (161 g)</td>
+<td align="right">450</td>
+<td align="right">250</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Breakfast
-</td>
-<td style="text-align:left;">
-Sausage McMuffin with Egg Whites
-</td>
-<td style="text-align:left;">
-5.7 oz (161 g)
-</td>
-<td style="text-align:right;">
-400
-</td>
-<td style="text-align:right;">
-210
-</td>
+<tr class="odd">
+<td align="left">Breakfast</td>
+<td align="left">Sausage McMuffin with Egg Whites</td>
+<td align="left">5.7 oz (161 g)</td>
+<td align="right">400</td>
+<td align="right">210</td>
 </tr>
 </tbody>
 </table>
@@ -642,9 +569,9 @@ Sausage McMuffin with Egg Whites
 <div id="dokumentation" class="section level3">
 <h3>Dokumentation</h3>
 <p>Siehe die <code>ggplot2</code> <a
-href="http://ggplot2.tidyverse.org/"><strong>Webseite</strong></a> und
+href="https://ggplot2.tidyverse.org/"><strong>Webseite</strong></a> und
 Selva Prabhakaran’s <a
-href="http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html"><strong>Webseite</strong></a>
+href="https://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html"><strong>Webseite</strong></a>
 mit inspirierenden <code>ggplot2</code> Beispielen.</p>
 </div>
 <div id="cheatsheet" class="section level3">

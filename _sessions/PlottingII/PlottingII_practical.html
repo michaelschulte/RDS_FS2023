@@ -171,7 +171,7 @@ pre code {
 <p align="center">
 <img width="100%" src="image/crime.png" margin=0><br>
 <font style="font-size:10px">adapted from <a
-href="http://www.trueloveproperty.co.uk/houses-sale-ingham/">paherald.sk.ca</a></font>
+href="https//www.trueloveproperty.co.uk/houses-sale-ingham/">paherald.sk.ca</a></font>
 </p>
 <div id="section" class="section level1 tabset">
 <h1 class="tabset"></h1>
@@ -239,26 +239,19 @@ Verbrechen.</p>
   labs(title = &quot;Verbrechen&quot;,
        subtitle = &quot;Haeufigkeit und Nutzung öffentlicher Verkehrsmittel&quot;) +
   theme_minimal()</code></pre>
-<p><img src="PlottingII_practical_files/figure-html/unnamed-chunk-4-1.png" width="576" style="display: block; margin: auto;" /></p>
 <ol start="2" style="list-style-type: decimal">
-<li>Sieht noch nicht so informativ aus. Ergänze
+<li><p>Sieht noch nicht so informativ aus. Ergänze
 <code>scale_x_continuous(trans = 'pseudo_log')</code> und
 <code>scale_y_continuous(trans = 'pseudo_log')</code> um die y und
-x-Achse zu stauchen. Später noch mehr zu Skalierungen.</li>
-</ol>
-<p><img src="PlottingII_practical_files/figure-html/unnamed-chunk-5-1.png" width="576" style="display: block; margin: auto;" /></p>
-<ol start="3" style="list-style-type: decimal">
-<li>Besser, oder? Jetzt zeichnet sich ein schwach positiver Zusammenhang
-ab. Könnte das anders aussehen, wenn man die verschiedenen Klassen von
-Verbrechen differenziert? Versuche dies mal über verschiedene Farben
-indem du <code>verbrechen</code> dem <code>col</code> Argument in
-<code>aes()</code> zuweist.</li>
-</ol>
-<p><img src="PlottingII_practical_files/figure-html/unnamed-chunk-6-1.png" width="576" style="display: block; margin: auto;" /></p>
-<ol start="4" style="list-style-type: decimal">
-<li>Nicht wirklich informativ, oder? Anstatt mit <code>col</code>
+x-Achse zu stauchen. Später noch mehr zu Skalierungen.</p></li>
+<li><p>Besser, oder? Jetzt zeichnet sich ein schwach positiver
+Zusammenhang ab. Könnte das anders aussehen, wenn man die verschiedenen
+Klassen von Verbrechen differenziert? Versuche dies mal über
+verschiedene Farben indem du <code>verbrechen</code> dem
+<code>col</code> Argument in <code>aes()</code> zuweist.</p></li>
+<li><p>Nicht wirklich informativ, oder? Anstatt mit <code>col</code>
 versuche nun die verschiedenen Verbrechen mit <code>facet_wrap()</code>
-zu differenzieren. Siehe unten.</li>
+zu differenzieren. Siehe unten.</p></li>
 </ol>
 <pre class="r"><code>ggplot(XX, aes(x = XX, 
                y = XX)) +
@@ -268,7 +261,6 @@ zu differenzieren. Siehe unten.</li>
   scale_x_continuous(trans = &#39;pseudo_log&#39;) + 
   scale_y_continuous(trans = &#39;pseudo_log&#39;) +
   facet_wrap(~ XX)</code></pre>
-<p><img src="PlottingII_practical_files/figure-html/unnamed-chunk-8-1.png" width="576" style="display: block; margin: auto;" /></p>
 <ol start="5" style="list-style-type: decimal">
 <li>Es zeichnet sich ab, dass nicht alle Verbrechen gleich mit dem
 Anteil Metro-fahrender zusammenhängen. Der stärkste Zusammenhang scheint
@@ -288,7 +280,6 @@ Funktion schreiben.</li>
   scale_x_continuous(trans = &#39;pseudo_log&#39;) + 
   scale_y_continuous(trans = &#39;pseudo_log&#39;) +
   facet_grid(XX &gt; 10 ~ XX)</code></pre>
-<p><img src="PlottingII_practical_files/figure-html/unnamed-chunk-10-1.png" width="576" style="display: block; margin: auto;" /></p>
 <ol start="6" style="list-style-type: decimal">
 <li>Relativ eindeutig: Die Anzahl Metro-fahrender ist nur mit Verbrechen
 assoziiert, wenn die Bezirke eine hohe Armut aufweisen. Gleichzeitig
@@ -306,7 +297,6 @@ Variable in <code>facet_grid()</code> aus.</li>
   scale_x_continuous(trans = &#39;pseudo_log&#39;) + 
   scale_y_continuous(trans = &#39;pseudo_log&#39;) +
   facet_grid(XX &gt; 5000 ~ XX)</code></pre>
-<p><img src="PlottingII_practical_files/figure-html/unnamed-chunk-12-1.png" width="576" style="display: block; margin: auto;" /></p>
 <ol start="7" style="list-style-type: decimal">
 <li>Der Zusammenhang ist verschwunden. Wir haben von Beginn an
 übersehen, dass viele Metro-fahrer stark mit einer hohen
@@ -334,7 +324,6 @@ Helferfunktion.</li>
   theme(
     panel.background = element_rect(fill = XX)
     )</code></pre>
-<p><img src="PlottingII_practical_files/figure-html/unnamed-chunk-16-1.png" width="576" style="display: block; margin: auto;" /></p>
 <ol start="3" style="list-style-type: decimal">
 <li>Als nächstes, ändere die Farbe der Haupt- und Nebenlinien zu
 <code>"grey75"</code> und deren Grössen zu <code>.25</code> und
@@ -348,7 +337,6 @@ Helferfunktion <code>element_line()</code>.</li>
     panel.grid.major = element_line(color = XX, size = XX),
     panel.grid.minor = element_line(color = XX, size = XX)
     )</code></pre>
-<p><img src="PlottingII_practical_files/figure-html/unnamed-chunk-18-1.png" width="576" style="display: block; margin: auto;" /></p>
 <ol start="4" style="list-style-type: decimal">
 <li>Ändere nun die Farbe des Hintergunds der Panel-Überschriften zu
 <code>white</code>. Verwende das <code>strip.background</code> Argument
@@ -361,7 +349,6 @@ und wiederum die <code>element_rect()</code> Helferfunktion.</li>
     panel.grid.minor = element_line(color = XX, size = XX),
     strip.background = element_rect(fill = XX),
     )</code></pre>
-<p><img src="PlottingII_practical_files/figure-html/unnamed-chunk-20-1.png" width="576" style="display: block; margin: auto;" /></p>
 <ol start="5" style="list-style-type: decimal">
 <li>Nun ändere die Schriftart der Überschriften zu <code>italic</code>
 mit dem <code>face</code> Argument, setze den Text rechtsbündig
@@ -378,7 +365,6 @@ und die genannten Argumente in <code>element_text()</code>. Siehe
     strip.background = element_rect(fill = XX),
     strip.text = element_text(face = XX, size = XX, hjust = XX)
     )</code></pre>
-<p><img src="PlottingII_practical_files/figure-html/unnamed-chunk-22-1.png" width="576" style="display: block; margin: auto;" /></p>
 <ol start="6" style="list-style-type: decimal">
 <li>Setze noch die Schriftgrösse der Achsenbeschriftungen auf
 <code>12</code> und setze jeweils einen Abstand von <code>10</code>.
@@ -397,7 +383,6 @@ Verwende hierzu die Argumente <code>axis.title.x</code> und
     axis.title.x = element_text(size = XX, margin = margin(t = XX)),
     axis.title.y = element_text(size = XX, margin = margin(r = XX)),
     )</code></pre>
-<p><img src="PlottingII_practical_files/figure-html/unnamed-chunk-24-1.png" width="576" style="display: block; margin: auto;" /></p>
 <ol start="7" style="list-style-type: decimal">
 <li>Abschliessend erhöhe den Abstand zwischen den Panels auf
 <code>1.1</code> in der Einheit <code>"lines"</code> mittels des
@@ -415,7 +400,6 @@ Funktion.</li>
     axis.title.y = element_text(size = XX, margin = margin(r = XX)),
     panel.spacing = unit(XX, units = XX)
     )</code></pre>
-<p><img src="PlottingII_practical_files/figure-html/unnamed-chunk-26-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 <div id="e---mein-theme-objekt" class="section level3">
 <h3>E - Mein <code>theme()</code> Objekt</h3>
@@ -477,7 +461,6 @@ skalieren haben. Weise im Code unten <code>staat</code> dem Argument
   mein_theme
 
 verbrechen_gg</code></pre>
-<p><img src="PlottingII_practical_files/figure-html/unnamed-chunk-32-1.png" width="576" style="display: block; margin: auto;" /></p>
 <ol start="2" style="list-style-type: decimal">
 <li>Als erstes verwende <code>sclale_size()</code> und darin das
 <code>range</code> argument um die Grösse der Punkte zu verkleinern.
@@ -487,7 +470,6 @@ Werte für die untere und obere Grenze aus, die jeweils kleiner als
 und Überlappung zu finden.</li>
 </ol>
 <pre class="r"><code>verbrechen_gg + scale_size(range = c(XX, XX))</code></pre>
-<p><img src="PlottingII_practical_files/figure-html/unnamed-chunk-34-1.png" width="576" style="display: block; margin: auto;" /></p>
 <ol start="3" style="list-style-type: decimal">
 <li>Nun ändere die Farben mit <code>scale_color_colorblind()</code>
 (spezifische Version von <code>scale_color_gradient()</code>), so dass
@@ -496,7 +478,6 @@ die Farben auch per Helligkeit voneinander abgrenzbar sind.</li>
 <pre class="r"><code>verbrechen_gg + 
   scale_size(range = c(XX, XX)) + 
   scale_color_colorblind()</code></pre>
-<p><img src="PlottingII_practical_files/figure-html/unnamed-chunk-36-1.png" width="576" style="display: block; margin: auto;" /></p>
 <ol start="5" style="list-style-type: decimal">
 <li>Alternativ kann man die Farbskala selbst setzen. Verwende
 <code>scale_color_manual()</code> und die <code>viridis()</code>
@@ -508,7 +489,6 @@ berücksichtigt.</li>
 <pre class="r"><code>verbrechen_gg + 
   scale_size(range = c(XX, XX)) + 
   scale_color_manual(values = viridis(7))</code></pre>
-<p><img src="PlottingII_practical_files/figure-html/unnamed-chunk-38-1.png" width="576" style="display: block; margin: auto;" /></p>
 <ol start="6" style="list-style-type: decimal">
 <li>Ok, sieht ganz ordentlich aus, oder? Kann man aber bestimmt noch
 verbessern. Go explore!</li>
@@ -902,9 +882,9 @@ Repository”.</p>
 <h3>Dokumentation</h3>
 <ul>
 <li><p>Siehe die <code>ggplot2</code> <a
-href="http://ggplot2.tidyverse.org/"><strong>Webseite</strong></a>.</p></li>
+href="https//ggplot2.tidyverse.org/"><strong>Webseite</strong></a>.</p></li>
 <li><p>Selva Prabhakaran’s <a
-href="http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html"><strong>Webseite</strong></a>
+href="https//r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html"><strong>Webseite</strong></a>
 mit inspirierenden <code>ggplot2</code> Beispielen.</p></li>
 </ul>
 </div>
@@ -912,7 +892,7 @@ mit inspirierenden <code>ggplot2</code> Beispielen.</p></li>
 <h3>Cheatsheets</h3>
 <p align="center" width="100%">
 <a href="https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf">
-<img src="https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.png" style="width:70%"></a>
+<img src="https//www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.png" style="width:70%"></a>
 <br> <font style="font-size:10px">from
 <a href="https://www.rstudio.com/resources/cheatsheets/">R
 Studio</a></font>

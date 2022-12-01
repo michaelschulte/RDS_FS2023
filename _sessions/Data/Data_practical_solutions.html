@@ -106,8 +106,8 @@ pre code {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "\e259";
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -115,9 +115,16 @@ pre code {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "\e258";
-  font-family: 'Glyphicons Halflings';
+  content: "&#xe258;";
   border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -467,7 +474,7 @@ diamonds &lt;- read_csv(file = XX)</code></pre>
 <pre class="r"><code># Lese den diamonds Datensatz ein
 diamonds &lt;- read_csv(file = &#39;1_Data/diamonds.csv&#39;)</code></pre>
 <pre><code>Rows: 99 Columns: 7
-── Column specification ─────────────────────────────────────────────────────────────
+── Column specification ──────────────────────────────────────────────────────────────────────────────────────
 Delimiter: &quot;,&quot;
 chr (4): 0.8, Very Good, H, VVS1
 dbl (3): 62.9, 58, 4468
@@ -481,15 +488,20 @@ die Variablennamen. Etwas stimmt nicht, oder?</li>
 <pre class="r"><code># Print diamonds
 diamonds</code></pre>
 <pre><code># A tibble: 99 × 7
-  `0.8` Very Goo…¹ H     VVS1  `62.9`  `58` `4468`
-  &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
-1 0.74  Ideal      H     IF      60.9    57   3760
-2 2.03  Premium    I     SI1     61.4    58  15683
-3 0.41  Ideal      G     VVS1    62.1    55   1151
-4 1.54  Premium    G     VS1     61.1    56  14438
-5 0.3   Ideal      E     VS2     61.8    55    795
-# … with 94 more rows, and abbreviated variable
-#   name ¹​`Very Good`</code></pre>
+   `0.8` `Very Good` H     VVS1  `62.9`  `58` `4468`
+   &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+ 1 0.74  Ideal       H     IF      60.9    57   3760
+ 2 2.03  Premium     I     SI1     61.4    58  15683
+ 3 0.41  Ideal       G     VVS1    62.1    55   1151
+ 4 1.54  Premium     G     VS1     61.1    56  14438
+ 5 0.3   Ideal       E     VS2     61.8    55    795
+ 6 0.3   Ideal       H     VVS2    61.5    56    605
+ 7 1.2   Ideal       D     SI1     61.8    58   7508
+ 8 0.58  Ideal       E     VS2     62.3    54   1809
+ 9 0.31  Ideal       H     VS2     62.6    57    489
+10 1.24  Very Good   F     VS1     59      60   9885
+# … with 89 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Du kannst das Problem lösen, indem du direkt einen
 <code>character</code> Vektor mit Namen dem
@@ -505,7 +517,7 @@ diamonds &lt;- read_csv(file = XX/XX,
 diamonds &lt;- read_csv(file = &#39;1_Data/diamonds.csv&#39;,
                      col_names = c(&quot;karat&quot;, &quot;cut&quot;, &quot;farbe&quot;, &quot;klarheit&quot;, &quot;tiefe&quot;, &quot;tabelle&quot;, &quot;preis&quot;))</code></pre>
 <pre><code>Rows: 100 Columns: 7
-── Column specification ─────────────────────────────────────────────────────────────
+── Column specification ──────────────────────────────────────────────────────────────────────────────────────
 Delimiter: &quot;,&quot;
 chr (4): karat, cut, farbe, klarheit
 dbl (3): tiefe, tabelle, preis
@@ -518,15 +530,20 @@ dbl (3): tiefe, tabelle, preis
 <pre class="r"><code># print diamonds
 diamonds</code></pre>
 <pre><code># A tibble: 100 × 7
-  karat cut      farbe klarh…¹ tiefe tabelle preis
-  &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
-1 0.8   Very Go… H     VVS1     62.9      58  4468
-2 0.74  Ideal    H     IF       60.9      57  3760
-3 2.03  Premium  I     SI1      61.4      58 15683
-4 0.41  Ideal    G     VVS1     62.1      55  1151
-5 1.54  Premium  G     VS1      61.1      56 14438
-# … with 95 more rows, and abbreviated variable
-#   name ¹​klarheit</code></pre>
+   karat cut       farbe klarheit tiefe tabelle preis
+   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
+ 1 0.8   Very Good H     VVS1      62.9      58  4468
+ 2 0.74  Ideal     H     IF        60.9      57  3760
+ 3 2.03  Premium   I     SI1       61.4      58 15683
+ 4 0.41  Ideal     G     VVS1      62.1      55  1151
+ 5 1.54  Premium   G     VS1       61.1      56 14438
+ 6 0.3   Ideal     E     VS2       61.8      55   795
+ 7 0.3   Ideal     H     VVS2      61.5      56   605
+ 8 1.2   Ideal     D     SI1       61.8      58  7508
+ 9 0.58  Ideal     E     VS2       62.3      54  1809
+10 0.31  Ideal     H     VS2       62.6      57   489
+# … with 90 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 <ol start="5" style="list-style-type: decimal">
 <li><p>Richte nun deine Aufmerksamkeit auf die Klassen der Variablen.
 Wurden die Klassen aller Variablen richtig interpretiert?</p></li>
@@ -538,16 +555,13 @@ wurde.</p></li>
 </ol>
 <pre class="r"><code># Zeige die Variable Karat
 diamonds$karat</code></pre>
-<pre><code>  [1] &quot;0.8&quot;  &quot;0.74&quot; &quot;2.03&quot; &quot;0.41&quot; &quot;1.54&quot; &quot;0.3&quot;  &quot;0.3&quot;  &quot;1.2&quot;  &quot;0.58&quot; &quot;0.31&quot; &quot;1.24&quot;
- [12] &quot;0.91&quot; &quot;1.28&quot; &quot;0.31&quot; &quot;1.02&quot; &quot;1&quot;    &quot;0,37&quot; &quot;0.55&quot; &quot;0.54&quot; &quot;0.34&quot; &quot;0.91&quot; &quot;0.9&quot; 
- [23] &quot;0.5&quot;  &quot;0.31&quot; &quot;1.66&quot; &quot;0.47&quot; &quot;0.3&quot;  &quot;0.7&quot;  &quot;1.72&quot; &quot;0.41&quot; &quot;1.06&quot; &quot;0.32&quot; &quot;0.4&quot; 
- [34] &quot;0.71&quot; &quot;0.3&quot;  &quot;1.31&quot; &quot;1.08&quot; &quot;0.45&quot; &quot;0.3&quot;  &quot;0.62&quot; &quot;1.01&quot; &quot;2&quot;    &quot;0.38&quot; &quot;2.03&quot;
- [45] &quot;1&quot;    &quot;0.38&quot; &quot;0.41&quot; &quot;0.49&quot; &quot;0.71&quot; &quot;1.51&quot; &quot;1.02&quot; &quot;1.3&quot;  &quot;0.32&quot; &quot;1.52&quot; &quot;0.59&quot;
- [56] &quot;1.31&quot; &quot;1.05&quot; &quot;1.08&quot; &quot;0.43&quot; &quot;1.08&quot; &quot;0.3&quot;  &quot;0.4&quot;  &quot;0.52&quot; &quot;0.41&quot; &quot;1&quot;    &quot;0.33&quot;
- [67] &quot;0.75&quot; &quot;0.26&quot; &quot;0.34&quot; &quot;1.49&quot; &quot;0.3&quot;  &quot;0.4&quot;  &quot;0.71&quot; &quot;0.92&quot; &quot;0.7&quot;  &quot;0.55&quot; &quot;1.47&quot;
- [78] &quot;0.42&quot; &quot;0.58&quot; &quot;0.44&quot; &quot;0.31&quot; &quot;0.3&quot;  &quot;0.55&quot; &quot;0.41&quot; &quot;0.31&quot; &quot;0.33&quot; &quot;0.32&quot; &quot;2.67&quot;
- [89] &quot;0.88&quot; &quot;0.57&quot; &quot;0.36&quot; &quot;0.53&quot; &quot;0.79&quot; &quot;0.9&quot;  &quot;0.31&quot; &quot;1.03&quot; &quot;0.39&quot; &quot;0.51&quot; &quot;0.34&quot;
-[100] &quot;0.25&quot;</code></pre>
+<pre><code>  [1] &quot;0.8&quot;  &quot;0.74&quot; &quot;2.03&quot; &quot;0.41&quot; &quot;1.54&quot; &quot;0.3&quot;  &quot;0.3&quot;  &quot;1.2&quot;  &quot;0.58&quot; &quot;0.31&quot; &quot;1.24&quot; &quot;0.91&quot; &quot;1.28&quot; &quot;0.31&quot; &quot;1.02&quot;
+ [16] &quot;1&quot;    &quot;0,37&quot; &quot;0.55&quot; &quot;0.54&quot; &quot;0.34&quot; &quot;0.91&quot; &quot;0.9&quot;  &quot;0.5&quot;  &quot;0.31&quot; &quot;1.66&quot; &quot;0.47&quot; &quot;0.3&quot;  &quot;0.7&quot;  &quot;1.72&quot; &quot;0.41&quot;
+ [31] &quot;1.06&quot; &quot;0.32&quot; &quot;0.4&quot;  &quot;0.71&quot; &quot;0.3&quot;  &quot;1.31&quot; &quot;1.08&quot; &quot;0.45&quot; &quot;0.3&quot;  &quot;0.62&quot; &quot;1.01&quot; &quot;2&quot;    &quot;0.38&quot; &quot;2.03&quot; &quot;1&quot;   
+ [46] &quot;0.38&quot; &quot;0.41&quot; &quot;0.49&quot; &quot;0.71&quot; &quot;1.51&quot; &quot;1.02&quot; &quot;1.3&quot;  &quot;0.32&quot; &quot;1.52&quot; &quot;0.59&quot; &quot;1.31&quot; &quot;1.05&quot; &quot;1.08&quot; &quot;0.43&quot; &quot;1.08&quot;
+ [61] &quot;0.3&quot;  &quot;0.4&quot;  &quot;0.52&quot; &quot;0.41&quot; &quot;1&quot;    &quot;0.33&quot; &quot;0.75&quot; &quot;0.26&quot; &quot;0.34&quot; &quot;1.49&quot; &quot;0.3&quot;  &quot;0.4&quot;  &quot;0.71&quot; &quot;0.92&quot; &quot;0.7&quot; 
+ [76] &quot;0.55&quot; &quot;1.47&quot; &quot;0.42&quot; &quot;0.58&quot; &quot;0.44&quot; &quot;0.31&quot; &quot;0.3&quot;  &quot;0.55&quot; &quot;0.41&quot; &quot;0.31&quot; &quot;0.33&quot; &quot;0.32&quot; &quot;2.67&quot; &quot;0.88&quot; &quot;0.57&quot;
+ [91] &quot;0.36&quot; &quot;0.53&quot; &quot;0.79&quot; &quot;0.9&quot;  &quot;0.31&quot; &quot;1.03&quot; &quot;0.39&quot; &quot;0.51&quot; &quot;0.34&quot; &quot;0.25&quot;</code></pre>
 <ol start="7" style="list-style-type: decimal">
 <li>Ersetze den falsch formatierten Wert in <code>karat</code> indem du
 unten im Code <code>XX</code> durch die Position (Zahl zwischen 10 und
@@ -566,7 +580,7 @@ immer noch vom Typ <code>character</code>. Verwende die Funktion
 <pre class="r"><code># Re-inferiere Datentypen
 diamonds &lt;- type_convert(diamonds)</code></pre>
 <pre><code>
-── Column specification ─────────────────────────────────────────────────────────────
+── Column specification ──────────────────────────────────────────────────────────────────────────────────────
 cols(
   karat = col_double(),
   cut = col_character(),
@@ -581,15 +595,20 @@ cols(
 <pre class="r"><code># Zeige diamonds
 diamonds</code></pre>
 <pre><code># A tibble: 100 × 7
-  karat cut      farbe klarh…¹ tiefe tabelle preis
-  &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
-1  0.8  Very Go… H     VVS1     62.9      58  4468
-2  0.74 Ideal    H     IF       60.9      57  3760
-3  2.03 Premium  I     SI1      61.4      58 15683
-4  0.41 Ideal    G     VVS1     62.1      55  1151
-5  1.54 Premium  G     VS1      61.1      56 14438
-# … with 95 more rows, and abbreviated variable
-#   name ¹​klarheit</code></pre>
+   karat cut       farbe klarheit tiefe tabelle preis
+   &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
+ 1  0.8  Very Good H     VVS1      62.9      58  4468
+ 2  0.74 Ideal     H     IF        60.9      57  3760
+ 3  2.03 Premium   I     SI1       61.4      58 15683
+ 4  0.41 Ideal     G     VVS1      62.1      55  1151
+ 5  1.54 Premium   G     VS1       61.1      56 14438
+ 6  0.3  Ideal     E     VS2       61.8      55   795
+ 7  0.3  Ideal     H     VVS2      61.5      56   605
+ 8  1.2  Ideal     D     SI1       61.8      58  7508
+ 9  0.58 Ideal     E     VS2       62.3      54  1809
+10  0.31 Ideal     H     VS2       62.6      57   489
+# … with 90 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 <ol start="10" style="list-style-type: decimal">
 <li>Nachdem du nun die Spaltennamen und die Klassen behoben hast,
 schreibe den Datensatz wieder auf die Festplatte unter
@@ -649,14 +668,12 @@ sich die ersten Werte in <code>preis</code> mit den Werten in
 </ol>
 <pre class="r"><code># Print teuer
 teuer</code></pre>
-<pre><code>  [1] FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
- [14] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE
- [27] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
- [40] FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE
- [53] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
- [66] FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
- [79] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE
- [92] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
+<pre><code>  [1] FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [18] FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [35] FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE
+ [52] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [69] FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [86] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Ergänze den Datensatz um die neue Variable <code>teuer</code>.</li>
 </ol>
@@ -716,17 +733,20 @@ Datensatzes mit <code>dim()</code>.</li>
 <pre class="r"><code># Printe und evaluiere Ausmasse
 titanic</code></pre>
 <pre><code># A tibble: 1,309 × 14
-  pclass survived name    sex      age sibsp parch
-   &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-1      1        1 Allen,… fema… 29         0     0
-2      1        1 Alliso… male   0.917     1     2
-3      1        0 Alliso… fema…  2         1     2
-4      1        0 Alliso… male  30         1     2
-5      1        0 Alliso… fema… 25         1     2
-# … with 1,304 more rows, and 7 more variables:
-#   ticket &lt;chr&gt;, fare &lt;dbl&gt;, cabin &lt;chr&gt;,
-#   embarked &lt;chr&gt;, boat &lt;chr&gt;, body &lt;dbl&gt;,
-#   home.dest &lt;chr&gt;</code></pre>
+   pclass survived name    sex      age sibsp parch ticket  fare cabin embar…¹ boat   body
+    &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt;
+ 1      1        1 Allen,… fema… 29         0     0 24160  211.  B5    S       2        NA
+ 2      1        1 Alliso… male   0.917     1     2 113781 152.  C22 … S       11       NA
+ 3      1        0 Alliso… fema…  2         1     2 113781 152.  C22 … S       &lt;NA&gt;     NA
+ 4      1        0 Alliso… male  30         1     2 113781 152.  C22 … S       &lt;NA&gt;    135
+ 5      1        0 Alliso… fema… 25         1     2 113781 152.  C22 … S       &lt;NA&gt;     NA
+ 6      1        1 Anders… male  48         0     0 19952   26.6 E12   S       3        NA
+ 7      1        1 Andrew… fema… 63         1     0 13502   78.0 D7    S       10       NA
+ 8      1        0 Andrew… male  39         0     0 112050   0   A36   S       &lt;NA&gt;     NA
+ 9      1        1 Applet… fema… 53         2     0 11769   51.5 C101  S       D        NA
+10      1        0 Artaga… male  71         0     0 PC 17…  49.5 &lt;NA&gt;  C       &lt;NA&gt;     22
+# … with 1,299 more rows, and abbreviated variable name ¹​embarked
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 <pre class="r"><code>dim(titanic)</code></pre>
 <pre><code>[1] 1309   14</code></pre>
 <ol start="3" style="list-style-type: decimal">
@@ -786,19 +806,20 @@ Variablen mit zu übernehmen.</li>
 <pre class="r"><code># Printe und evaluiere Ausmass
 sleep</code></pre>
 <pre><code># A tibble: 271 × 55
-     id sex          age marital    edlevel weight
-  &lt;dbl&gt; &lt;dbl+lbl&gt;  &lt;dbl&gt; &lt;dbl+lbl&gt;  &lt;dbl+l&gt;  &lt;dbl&gt;
-1    83 0 [female]    42 2 [marrie… 2 [sec…     52
-2   294 0 [female]    54 2 [marrie… 5 [pos…     65
-3   425 1 [male]      NA 2 [marrie… 2 [sec…     89
-4    64 0 [female]    41 2 [marrie… 5 [pos…     66
-5   536 0 [female]    39 2 [marrie… 5 [pos…     62
-# … with 266 more rows, and 49 more variables:
-#   height &lt;dbl&gt;, healthrate &lt;dbl+lbl&gt;,
-#   fitrate &lt;dbl+lbl&gt;, weightrate &lt;dbl+lbl&gt;,
-#   smoke &lt;dbl+lbl&gt;, smokenum &lt;dbl&gt;,
-#   alchohol &lt;dbl&gt;, caffeine &lt;dbl&gt;,
-#   hourwnit &lt;dbl&gt;, hourwend &lt;dbl&gt;, …</code></pre>
+      id        sex   age   marital edlevel weight height health…¹ fitrate weigh…²   smoke
+   &lt;dbl&gt;  &lt;dbl+lbl&gt; &lt;dbl&gt; &lt;dbl+lbl&gt; &lt;dbl+l&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl+lb&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt;
+ 1    83 0 [female]    42 2 [marri… 2 [sec…     52    162 10 [ver…       7       5 1 [yes]
+ 2   294 0 [female]    54 2 [marri… 5 [pos…     65    174  8             7       5 2 [no] 
+ 3   425 1 [male]      NA 2 [marri… 2 [sec…     89    170  6             5       7 2 [no] 
+ 4    64 0 [female]    41 2 [marri… 5 [pos…     66    178  9             7       5 1 [yes]
+ 5   536 0 [female]    39 2 [marri… 5 [pos…     62    160  9             5       7 2 [no] 
+ 6    57 0 [female]    66 2 [marri… 4 [und…     62    165  8             8       5 2 [no] 
+ 7   251 0 [female]    36 1 [singl… 3 [tra…     62    165  9             7       7 2 [no] 
+ 8   255 0 [female]    35 2 [marri… 5 [pos…     75    174  6             6       8 2 [no] 
+ 9   265 1 [male]      NA 2 [marri… 5 [pos…     90    180  6             6       8 2 [no] 
+10   290 1 [male]      41 2 [marri… 5 [pos…     75    187  9             9       3 1 [yes]
+# … with 261 more rows, and abbreviated variable names ¹​healthrate, ²​weightrate
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 <pre class="r"><code>dim(sleep)</code></pre>
 <pre><code>[1] 271  55</code></pre>
 <ol start="3" style="list-style-type: decimal">
