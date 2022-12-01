@@ -106,8 +106,8 @@ pre code {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "\e259";
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -115,9 +115,16 @@ pre code {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "\e258";
-  font-family: 'Glyphicons Halflings';
+  content: "&#xe258;";
   border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -232,26 +239,21 @@ Positioniere <code>Calories</code> auf der x-Achse und
 </ol>
 <pre class="r"><code>ggplot(data = mcdonalds, 
        mapping = aes(x = XX, y = XX))</code></pre>
-<p><img src="PlottingI_practical_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
 <ol start="2" style="list-style-type: decimal">
-<li>Verwende <code>geom_point()</code> und <code>+</code> um Punkte zu
-plotten.</li>
-</ol>
-<p><img src="PlottingI_practical_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
-<ol start="3" style="list-style-type: decimal">
-<li>Verwende das <code>col</code> Argument in <code>aes()</code> um die
-Farbe nach der Variable <code>Category</code> variieren zu lassen.</li>
+<li><p>Verwende <code>geom_point()</code> und <code>+</code> um Punkte
+zu plotten.</p></li>
+<li><p>Verwende das <code>col</code> Argument in <code>aes()</code> um
+die Farbe nach der Variable <code>Category</code> variieren zu
+lassen.</p></li>
 </ol>
 <pre class="r"><code>ggplot(mcdonalds, aes(x = XX, y = XX, col = XX)) +
   geom_point() </code></pre>
-<p><img src="PlottingI_practical_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
 <ol start="4" style="list-style-type: decimal">
 <li>Verwende <code>geom_smooth()</code> um eine angepasste Linie zu
 ergänzen.</li>
 </ol>
 <pre class="r"><code>ggplot(mcdonalds, aes(x = XX, y = XX, col = XX)) +
   geom_point() </code></pre>
-<p><img src="PlottingI_practical_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;" /></p>
 <ol start="5" style="list-style-type: decimal">
 <li>Oops! Hast du mehre Linien anstatt einer bekommen? Löse das Problem
 indem du die Farbe innerhalb von <code>geom_smooth()</code> auf
@@ -260,7 +262,6 @@ indem du die Farbe innerhalb von <code>geom_smooth()</code> auf
 <pre class="r"><code>ggplot(mcdonalds, aes(x = XX, y = XX, col = XX)) +
   geom_point() +
   geom_smooth(col = &quot;XX&quot;) </code></pre>
-<p><img src="PlottingI_practical_files/figure-html/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
 <ol start="6" style="list-style-type: decimal">
 <li>Verwende <code>labs()</code> um den Plot angemessen zu
 annotieren.</li>
@@ -271,7 +272,6 @@ annotieren.</li>
   labs(title = &quot;XX&quot;,
        subtitle = &quot;XX&quot;,
        caption = &quot;XX&quot;)</code></pre>
-<p><img src="PlottingI_practical_files/figure-html/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;" /></p>
 <ol start="7" style="list-style-type: decimal">
 <li>Verwende <code>xlim()</code>, eine einfache Version von
 <code>scale_x_continuous()</code>, um die x-Achse auf die Werte
@@ -284,12 +284,10 @@ annotieren.</li>
        subtitle = &quot;XX&quot;,
        caption = &quot;XX&quot;) +
   xlim(XX, XX)</code></pre>
-<p><img src="PlottingI_practical_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" /></p>
 <ol start="8" style="list-style-type: decimal">
 <li>Abschliessend verwende <code>theme_minimal()</code> um die Ästhetik
 des Plots anzupassen.</li>
 </ol>
-<p><img src="PlottingI_practical_files/figure-html/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="d---geoms" class="section level3">
 <h3>D - <code>geom</code>s</h3>
@@ -304,25 +302,15 @@ Fall der Kalorien. Verwende für das Argument <code>fill</code> ebenfalls
 <pre class="r"><code>ggplot(data = mcdonalds, 
        aes(x = XX, y = XX, fill = XX)) +
   geom_violin()</code></pre>
-<p><img src="PlottingI_practical_files/figure-html/unnamed-chunk-19-1.png" width="768" style="display: block; margin: auto;" /></p>
 <ol start="2" style="list-style-type: decimal">
-<li>Ergänze mit <code>labs()</code> einen angemessenen Titel
-(<code>title</code>) und Untertitel (<code>subtitle</code>).</li>
-</ol>
-<p><img src="PlottingI_practical_files/figure-html/unnamed-chunk-20-1.png" width="768" style="display: block; margin: auto;" /></p>
-<ol start="3" style="list-style-type: decimal">
-<li>Ergänze <code>theme(legend.position = "none")</code>, so dass keine
-Legende gezeigt wird.</li>
-</ol>
-<p><img src="PlottingI_practical_files/figure-html/unnamed-chunk-21-1.png" width="768" style="display: block; margin: auto;" /></p>
-<ol start="4" style="list-style-type: decimal">
-<li>Verwende <code>geom_jitter()</code> um Punkte über die Violinen zu
-plotten. Setze in der Funktion <code>width = .1</code> und
-<code>alpha = .5</code>.</li>
-</ol>
-<p><img src="PlottingI_practical_files/figure-html/unnamed-chunk-22-1.png" width="768" style="display: block; margin: auto;" /></p>
-<ol start="5" style="list-style-type: decimal">
-<li>Probiere ein paar Sachen aus:</li>
+<li><p>Ergänze mit <code>labs()</code> einen angemessenen Titel
+(<code>title</code>) und Untertitel (<code>subtitle</code>).</p></li>
+<li><p>Ergänze <code>theme(legend.position = "none")</code>, so dass
+keine Legende gezeigt wird.</p></li>
+<li><p>Verwende <code>geom_jitter()</code> um Punkte über die Violinen
+zu plotten. Setze in der Funktion <code>width = .1</code> und
+<code>alpha = .5</code>.</p></li>
+<li><p>Probiere ein paar Sachen aus:</p></li>
 </ol>
 <ul>
 <li>Ändere die Werte für <code>width</code> oder <code>alpha</code> in
@@ -399,7 +387,6 @@ folgenden Code um die <code>Calories</code> (y-Achse) gegen
 <li>Ergänze Punkte über den Balken mit <code>geom_point()</code>,
 <code>geom_count()</code>, oder <code>geom_jitter()</code>.</li>
 </ul>
-<p><img src="PlottingI_practical_files/figure-html/unnamed-chunk-28-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 <div id="x---challenges" class="section level3">
 <h3>X - Challenges</h3>
