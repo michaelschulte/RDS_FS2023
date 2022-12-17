@@ -19,7 +19,6 @@ knitr::opts_chunk$set(comment = NA,
                       message = FALSE)
 
 options(digits = 3)
-source("../baselink.R")
 ```
 
 <p align="center" width="100%">
@@ -626,6 +625,47 @@ read_csv("XX") %>%
   ...
 
 ```
+
+2. Für eine Studie möchten Forscher speziell die Altersgruppe zwischen 60 - 70 Jahren verwenden, die einerseits Diabetiker sind und ausserdem Bluthochdruck aufweisen. Aus dieser Gruppe sind die Forscher an eine Score interessiert, der diejenigen Patienten einen Score von 2 zuweist, die eine Behinderung haben und auch alkholabhängig sind. Der Score soll 1 werden wenn weder das Eine noch das Andere der Fall ist. Was ist das Geschlecht der Person, mit dem Score = 2?
+
+```{r}
+appointments %>%
+  filter(Age >= 60 & Age <= 70,
+         diabetes == TRUE,
+         bluthochdruck == TRUE) %>%
+  mutate(score = case_when(alkoholismus == TRUE & behinderung == 1 ~ 2, 
+                           TRUE ~ 1)) %>%
+  filter(score == 2)
+```
+
+3. Eine Forscherin interessiert sich nun für den Ort (Geburtsort) mit den meisten Patienten der Gruppe mit Score = 1. Wie ist das durschnittliche Alter und die Standardabweichung in dieser Gruppe - wie viele Patienten sind in diesem Ort?
+
+```{r}
+top_location <-
+appointments %>%
+  filter(Age >= 60 & Age <= 70,
+         diabetes == TRUE,
+         bluthochdruck == TRUE) %>%
+  mutate(score = case_when(alkoholismus == TRUE & behinderung == 1 ~ 2, 
+                           TRUE ~ 1)) %>%
+  filter(score == 1) %>%
+  count(geburtsort, sort = TRUE) %>%
+  slice(1)
+
+appointments %>%
+   filter(Age >= 60 & Age <= 70,
+         diabetes == TRUE,
+         bluthochdruck == TRUE) %>%
+  mutate(score = case_when(alkoholismus == TRUE & behinderung == 1 ~ 2, 
+                           TRUE ~ 1)) %>%
+  filter(score == 1) %>%
+  filter(geburtsort == top_location$geburtsort) %>%
+  summarise(av_age = mean(Age),
+            sd = sd(Age),
+            n = n())
+```
+
+
 
 ## Beispiele
 
